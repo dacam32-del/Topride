@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topride - Tu viaje a un toque</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f8;color:#222}
+header{background:#0a2540;color:#fff;padding:18px;text-align:center}
+header h1{margin:0}
+header p{margin:5px 0 0;opacity:0.8}
+.container{max-width:500px;margin:20px auto;padding:20px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+label{font-weight:bold;display:block;margin-top:12px}
+input,select,button{width:100%;padding:12px;margin-top:6px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box}
+button{background:#00c48c;color:#fff;border:none;font-size:16px;font-weight:bold;cursor:pointer;margin-top:18px}
+button:hover{background:#00a877}
+.viaje{background:#f0fff9;border:1px solid #00c48c;border-radius:8px;padding:10px;margin-top:10px}
+</style>
+</head>
+<body>
+<header>
+<h1>Topride</h1>
+<p>Tu viaje a un toque</p>
+</header>
+<div class="container">
+<h2>Pide tu ride</h2>
+<label>Desde</label>
+<input id="desde" placeholder="Ej: Plaza de Arica">
+<label>Hasta</label>
+<input id="hasta" placeholder="Ej: Aeropuerto">
+<label>Tipo de auto</label>
+<select id="tipo">
+<option>Standard</option>
+<option>Premium</option>
+<option>Compartido</option>
+</select>
+<button onclick="pedir()">Solicitar Topride</button>
+<div id="resultado"></div>
+</div>
+<script>
+function pedir(){
+  const desde=document.getElementById('desde').value;
+  const hasta=document.getElementById('hasta').value;
+  const tipo=document.getElementById('tipo').value;
+  if(!desde || !hasta){alert('Completa desde y hasta');return}
+  document.getElementById('resultado').innerHTML='<div class="viaje"><b>Topride '+tipo+' asignado</b><br>De: '+desde+'<br>A: '+hasta+'<br>Llega en 5 min</div>';
+}
+</script>
+</body>
+</html>
